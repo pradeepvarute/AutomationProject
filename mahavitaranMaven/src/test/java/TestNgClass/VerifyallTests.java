@@ -50,7 +50,6 @@ public class VerifyallTests {
 //			System.setProperty("webdriver.gecko.driver", "D:\\BROWSERS\\geckodriver-v0.32.0-win-aarch64\\geckodriver.exe");
 //		}
 		
-		
 		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		
@@ -102,6 +101,9 @@ public class VerifyallTests {
 		  registrationProfilePage.sendKeysPassword();
 		  registrationProfilePage.sendKeysConfirmPassword();
 		//  registrationProfilePage.clikOnSubmitButton();
+		  
+		  String title=driver.getTitle();
+		  System.out.println(title);
 		  
 		  String ActualURL=driver.getCurrentUrl();
 		  String ExpectedURL="https://wss.mahadiscom.in/wss/wss?uiActionName=getCreateUpdateCustProfile_new";
@@ -176,7 +178,7 @@ public class VerifyallTests {
 		  String ExpectedURL="https://www.mahadiscom.in/en/renewable-energy-portals/";
 		  soft.assertEquals(ActualURL, ExpectedURL);
 	      
-	    //  SolarRooftopCalculator solarRooftopCalculator=new SolarRooftopCalculator(driver);
+	      //SolarRooftopCalculator solarRooftopCalculator=new SolarRooftopCalculator(driver);
 	      solarRooftopCalculator.clikOnSolarRooftop();
 	      
 	      ArrayList<String> addr2=new ArrayList<String>(driver.getWindowHandles());
@@ -186,9 +188,9 @@ public class VerifyallTests {
 		  String ExpectedURL1="https://www.mahadiscom.in/ismart/";
 		  soft.assertEquals(ActualURL1, ExpectedURL1);
 		  
-	     // solarRooftopCalculator.scrollby();
+	      // solarRooftopCalculator.scrollby();
 		  JavascriptExecutor js=(JavascriptExecutor)driver;
-			 js.executeScript("window.scrollBy(0,200)");
+		  js.executeScript("window.scrollBy(0,200)");
 	      solarRooftopCalculator.clikOnSolarCalculator();
 	      
 	      String ActualText= solarRooftopCalculator.GetTextSolarRoofTopCalcy();
@@ -207,7 +209,8 @@ public class VerifyallTests {
 		  String ExpectedURL2="https://solarrooftop.gov.in/rooftop_calculator";
 		  soft.assertEquals(ActualURL2, ExpectedURL2);
 		  
-		  soft.assertAll();
+		 soft.assertAll();
+		  
 		 // Assert.assertEquals(ActualURL, ExpectedURL);
 	      
 //	      ArrayList<String> addr3=new ArrayList<String>(driver.getWindowHandles());
